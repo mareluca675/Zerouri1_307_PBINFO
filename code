@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n, i = 1, a, doi = 0, cinci = 0, p = 1;
+    
+    cin >> n;
+    
+    while(i <= n)
+    {
+        cin >> a;
+        
+        while(a % 2 == 0)
+        {
+            doi ++;
+            a = a / 2;
+        }
+        
+        while(a % 5 == 0)
+        {
+            cinci ++;
+            a = a / 5;
+        }
+        
+        p = p * (a % 10);
+        
+        if(p > 10)
+        {
+            p = p % 10;
+        }
+        
+        i ++;
+    }
+    
+    if(doi >= cinci)
+    {
+        while(cinci < doi)
+        {
+            p = p * 2;
+            if(p > 10)
+            {
+            p = p % 10;
+            }
+            cinci ++;
+        }
+
+        cout << p;
+    }
+    else
+    {
+        while(doi < cinci)
+        {
+            p = p * 5;
+            if(p > 10)
+            {
+            p = p % 10;
+            }
+            cinci ++;
+        }
+        
+        cout << p;
+    }
+    
+    return 0;
+}
